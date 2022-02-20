@@ -1,0 +1,101 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Tableau {% endblock %}
+
+{% block body %}
+
+    <div class=" container-fluid" dir="rtl">
+    <h1>إحصائيات </h1>
+            <div class="row">
+                <div class="col">
+                    <div class="card bg-primary text-white mb-3 text-center">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-4">
+                                    <i class="fas fa-users fa-3x"></i>
+                                </div>
+                                <div class ="col-8">
+                                    <h4 class="card-title">
+                                        {{ stats.users }} مواطن مسجل  
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col">
+                    <div class="card alert-success text-white mb-3 text-center">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-4">
+                                    <i class="fas fa-hotel fa-3x"></i>
+                                </div>
+                                <div class="col-8">
+                                    <h4 class="card-title">
+                                    {{ stats.ads }} تشكي 
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card bg-warning text-white mb-3 text-center">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-4">
+                                    <i class="fas fa-folder fa-3x"></i>
+                                </div>
+                                <div class="col-8">
+                                    <h4 class="card-title">
+                                        {{ stats.reponse }} إجابة 
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="card bg-info text-white mb-3 text-center ">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <i class="fas fa-person fa-3x"></i>
+                                        
+                                    </div>
+                                    <div class="col-8">
+                                        <h4 class="card-title">
+                                            {{ stats.rojla }} ذكر 
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="col">
+                        <div class="card bg-danger text-white mb-3 text-center">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <i class="fas fa-person-dress fa-3x"></i>
+                                        
+                                    </div>
+                                    <div class="col-8">
+                                        <h4 class="card-title">
+                                            {{ stats.ontha }} أنثى 
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+
+    </div>
+{% endblock %}

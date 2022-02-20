@@ -1,0 +1,70 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary  " dir="rtl" >
+    <div class="container-fluid" dir="rtl">
+      <a class="navbar-brand " href="{{ path('home')}}">Programme E-Municipality </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse " id="navbarColor01" >
+        <ul class="navbar-nav me-auto ">
+          
+          <li class="nav-item active">
+            <a class="nav-link active "   href="{{ path('home')}}" >الرئيسية
+              
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="{{ path('ad_index')}}">التشكيات
+              
+            </a>
+          </li>
+         
+         
+        <li class="nav-item">
+            <a class="nav-link" href="{{path('commune')}}">بلدية نبر</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{path('partenaire')}}"> المساهمون في المنصة</a>
+          </li>
+          
+       
+      </ul>
+
+      
+          <ul class="navbar-nav ml-auto" >
+            {% if app.user %}
+                  <li class="nav-item ">
+                        <a href="{{ path('ads_create')}}" class="nav-link">التبليغ عن مشكل</a>
+                   </li>   
+                       
+                   <li class="nav-item ">
+                        <a href="{{ path('account_logout') }}" class="nav-link">تسجيل الخروج </a>
+                    </li>
+                    <li class="nav-item "  >
+                      <a class="nav-link" href="{{ path('account_index')}}">
+                            <img src="/images/user_circle.png" class="avatar avatar-mini" alt="Avatar de {{app.user.nom}}"> {{app.user.fullName}}  
+                       </a> 
+                    </li>
+            {% else %}
+                    <li class="nav-item">
+                      <a href="{{ path('account_login') }}" class="nav-link">تسجيل الدخول </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="{{ path('account_register') }}" class="nav-link">إنشاء حساب
+                        </a>
+                    </li>
+            {% endif %}
+        </ul>
+
+    </div>
+  </nav>
+
+  {% for label, messages in app.flashes %}
+    <div class="container">
+        <div class="alert alert-{{ label }}">
+            {% for message in messages %}
+                <p>{{ message | raw }}</p>
+            {% endfor %}
+        </div>
+    </div>
+  {% endfor %}

@@ -1,0 +1,55 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-secondary  " dir="rtl">
+    <div class="container-fluid" dir="rtl">
+      <a class="navbar-brand " href="{{ path('admin_dashboard')}}">Programme E-Municipality</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse " id="navbarColor01"  >
+        <ul class="navbar-nav mr-auto ">
+          
+          <li class="nav-item active">
+            <a class="nav-link active "   href="{{ path('admin_dashboard')}}" > <i class="fas fa-chart-line"> لوحه القياده </i>
+              
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="{{ path('admin_ads_index')}}"> <i class="fas fa-hotel"> إدارة التشكيات </i>
+              
+            </a>
+          </li>
+         
+         
+          <li class="nav-item">
+            <a href="{{ path('home') }} " target="_blank"class="nav-link">
+                <i class="fas fa-eye">لمحة على المنصة</i> 
+            </a>
+        </li>
+        
+          <li class="nav-item">
+            <a href="{{ path('admin_account_logout') }}" class="nav-link"> <i class="fas fa-windows-close">  تسجيل الخروج</i>
+          </a>
+          </li>
+  
+            </ul>
+            <ul class="navbar-nav ml-auto" >
+            {% if app.user %}
+              <li class="nav-item "  >
+                <a class="nav-link" href="#">
+                      <img src="/images/Administrator-icon (1).png" class="avatar avatar-mini" alt="Avatar de {{app.user.nom}}"> {{app.user.fullName}}  
+                 </a> 
+              </li>
+            {% endif %}
+      </div>
+    </div>
+  </nav>
+
+  {% for label, messages in app.flashes %}
+    <div class="container">
+        <div class="alert alert-{{ label }}">
+            {% for message in messages %}
+                <p>{{ message | raw }}</p>
+            {% endfor %}
+        </div>
+    </div>
+{% endfor %}

@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}الاجابة على التشكيات {% endblock %}
+
+
+
+{% block body %}
+    <div class="container" dir="rtl">
+        <h1>الاجابة على التشكي  {{ad.id}}</h1>
+
+        {{ form_start(form) }}
+        <div class="row">
+                <div class="alert alert-light">
+                <div class="col">
+        {{ form_row(form.type) }}
+        {{ form_row(form.lieu) }}
+        {{ form_row(form.cite) }}
+        {{ form_row(form.content) }}
+        {{ form_row(form.solution) }}
+        
+   
+        {{ form_row(form.reponse) }}
+
+        {{ form_row(form._token) }}
+        </div>
+                </div>
+                 
+            </div>
+            
+       
+        <input type="hidden" name="token" value="{{ csrf_token('some-name') }}">
+        
+        <button type="submit" class="btn btn-primary">تسجيل الاجابة  </button>
+        {{ form_end(form,{'render_rest': false}) }}
+        
+    </div>
+
+{% endblock %}
+
+

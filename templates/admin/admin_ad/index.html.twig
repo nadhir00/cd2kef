@@ -1,0 +1,64 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %} لوحه القياده{% endblock %}
+
+{% block body %}
+    <div class="container-fluid" dir="rtl">
+    <h1 class="my-5">التشكيات </h1>
+
+    <table class="table table-hover">
+        <thead>
+            <tr class="table-warning">
+                
+                <th class="text-center">نوع المشكل</th>
+                <th class="text-center">مكان المشكل</th>
+                <th class="text-center">المبلغ</th>
+                <th class="text-center">الحي</th>
+                <th class="text-center"> المشكل يإيجاز</th>
+                <th class="text-center">اقترح حل</th>
+           
+                <th class="text-center">#######</th>
+            </tr>
+        </thead>
+
+        <tbody >
+            {% for ad in ads %}
+            <tr >
+                
+                <td class="text-center">{{ad.type}}</td>
+                <td class="text-center">{{ad.lieu}}</td>
+                <td class="text-center"> {{ad.author.fullName}}  </td>
+                <td class="text-center">{{ad.cite}}</td>
+                <td class="text-center">{{ad.content}}</td>
+                <td class="text-center">{{ad.solution}}</td>
+               
+                
+                <td class="text-center">
+                    <a href="{{ path('admin_ads_edit', {'id': ad.id})}}" class="btn btn-primary"> <i class="fas fa-edit">أجب</i>  </a>
+                    <a href="{{ path('admin_ads_delete', {'id': ad.id})}}" class="btn btn-danger"><i class="fas fa-trash">فسخ </i> </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+    <div class="d-flex justify-content-center">
+        <ul class="pagination">
+        <li class="page-item {% if page == 1 %} disabled {% endif%}">
+            <a class="page-link" href=" {{ path('admin_ads_index', {'page': page - 1 })}}">&laquo;</a>
+        </li>
+            {% for i in 1..pages %}
+            <li class="page-item {% if page == i %} active {% endif %}">
+            <a class="page-link" href="{{path('admin_ads_index',{'page': i} )}}"> {{ i }}</a>
+            </li>
+            {% endfor %}
+        <li class="page-item {% if page == pages %}disabled {% endif %}" >
+                <a class="page-link" href="{{ path('admin_ads_index', {'page': page + 1 })}}">&raquo;</a>
+        </li>
+        
+            
+        </ul>
+        </div>
+
+ 
+{% endblock %}

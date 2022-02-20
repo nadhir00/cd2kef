@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block body %}
+    <div class="container" dir="rtl">
+        <h1>الرجاء إدخال المعطيات التالية!</h1>
+        <div class="col">
+        
+        <div class="alert alert-light">
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button type="submit" class="btn btn-success">  التسجيل
+            </button>
+            {{ form_end(form) }}
+        </div>
+        </div>
+    </div>
+{% endblock %}

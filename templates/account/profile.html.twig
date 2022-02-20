@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}حسابي {% endblock %}
+
+{% block body %}
+    <div class="container" dir="rtl">
+        
+
+        {{ form_start(form) }}
+
+        <div class="row">
+            <div class="alert alert-light">
+                    <h2 class="alert-heading">معلومات عامة </h2>
+                    <hr>
+                  
+                    {{ form_widget(form) }}
+            </div>
+                
+                <div class="alert alert-light">
+                   
+                    <p>إذا انهيت تحين الحساب، سجل التغير </p>
+                    <button type="submit" class="btn btn-primary">
+                        
+                        التسجيل التغير 
+                    </button>
+                </div>
+           
+           
+        </div>        
+
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

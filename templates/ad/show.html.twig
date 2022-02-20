@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+{% block title %} {{ad.lieu}}{% endblock %}
+    {% block body %} 
+
+        <div class="x" style="background-image: url(https://www.couverturefb.com/upload/2012/12/25/20121225193639-71e8694d.jpg)"   dir="rtl">
+            <div class="container">
+
+            <h1>{{ad.lieu}}</h1>
+            <p>المشكل يإيجاز {{ad.content}} </p>
+        
+            <p class="h2">
+
+                <strong>{{ad.getType}}</strong>   
+            <p>
+            
+            </div>
+        </div>
+
+        <div class="container"  dir="rtl" >
+            <div class="row">
+                <div class="col-md-8 mb-3">
+                    <h1> المشكل </h1> 
+                    <p> {{ad.content | raw }}</p>
+                    <h1>اقترح </h1>    
+                   <p> {{ad.solution}}  </p>
+                 
+                
+                   <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                    
+                        <div class="carousel-item  active ">
+                        <img class="d-block w-100" src="/images/image-ads/{{ ad.getImageName }}" alt="First slide">
+                            <div class="carousel-caption d-none d-md-block">
+                            <h5> {{ ad.lieu }}</h5>
+                            <p> {{ ad.content }}</p>
+                            
+             
+                            </div>
+                        </div>
+                    
+                      
+                    </div>
+                    
+                  </div>
+                
+                </div>
+              
+                    
+              
+                
+                <div class="col" >
+                    {% set a = ad.author %}
+                        
+                    <div class="row">
+                        <div class="col-3">
+                            <a href="{{ path('user_show',{'id': a.id }) }}">
+                            <img src="/images/user_circle.png" class="avatar avatar-medium" alt="avatar de {{a.fullName}}">
+                            </a>
+
+                        </div>
+                        <div class="col">
+                            <a href="{{ path('user_show',{'id': a.id }) }}">
+                            <h3> {{a.fullName}} </h3>
+                            </a>
+                            
+                            <a href="{{ path('user_show',{'id': a.id }) }}">
+                            <span class="btn btn-primary"> {{a.ads | length}} تشكيات </span>
+                          </a>
+                          <h2>الاجابه إن وجدت</h2>
+                          <p>
+                             {{ ad.reponse }}
+                            </p>
+                        
+                        </div>
+                    </div>
+                
+                  </div>
+            </div>
+        </div>
+        
+
+    {% endblock %}

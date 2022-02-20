@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>دخول الاداري</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .card {
+            margin-top: 10%;
+        }
+    </style>
+</head>
+<body  dir="rtl">
+    <div class="col-md-4">
+        <div class="card bg-light">
+            <div class="card-header">
+                <h4 class="card-title">
+                    <i class="fas fa-lock"></i>
+                    تسجيل دخول الاداري 
+                </h4>
+            </div>
+            <div class="card-body">
+               
+                {% if hasError %}
+                    <div class="alert alert-warning">
+                        <p>المعلومات المضافة غير صحيحة </p>
+                    </div>
+                {% endif %}
+                
+                <form method="post">
+                    <div class="form-group"><label for="_username">البريد الالكتروني </label><input type="text" class="form-control" placeholder="Adresse email" name="_username" "></div>
+                    <div class="form-group"><label for="_password"> كلمة السر </label><input type="password" class="form-control" placeholder="Mot de passe" name="_password"></div>
+                    <div class="form-grouo">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-lock-open"></i>
+                            دخول 
+                        </button>
+                        <a href="{{ path('home')}}" class="btn btn-link">
+                            <i class="fas fa-arrow-circle-left"></i>
+                            العودة إلى المنصة
+
+
+                        </a>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
